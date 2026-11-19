@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محمد الرفاعي | طالب IT</title>
+    <!-- خط تجوال من جوجل لتحسين مظهر الخط العربي -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --accent: #2563eb;
+            --accent-soft: #eff6ff;
+            --border-color: #e2e8f0;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --accent-soft: rgba(56, 189, 248, 0.12);
+            --border-color: #334155;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Tajawal', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 680px;
+        }
+
+        /* زر تبديل الثيم */
+        .top-bar {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 1.5rem;
+        }
+
+        .theme-btn {
+            background: var(--card-bg);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 999px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: all 0.2s ease;
+        }
+
+        .theme-btn:hover {
+            border-color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        /* البطاقة الرئيسية */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.25rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+        }
+
+        /* الترويسة */
+        .hero {
+            text-align: center;
+            padding: 2.5rem 2rem;
+        }
+
+        .avatar-initials {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            background: var(--accent-soft);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            font-weight: 800;
+            border: 2px solid var(--accent);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.35rem;
+        }
+
+        .subtitle {
+            display: inline-block;
+            background: var(--accent-soft);
+            color: var(--accent);
+            padding: 0.25rem 1rem;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .bio {
+            color: var(--text-muted);
+            max-width: 500px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        /* العناوين الداخلية */
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        h2::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 1.2rem;
+            background: var(--accent);
+            border-radius: 4px;
+        }
+
+        /* المهارات */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+        }
+
+        .skill-tag {
+            background: var(--accent-soft);
+            color: var(--accent);
+            border: 1px solid transparent;
+            padding: 0.45rem 1rem;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            direction: ltr;
+            transition: all 0.2s ease;
+            cursor: default;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* الهوايات */
+        .hobby-box {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            font-weight: 500;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hobby-badge {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 1.65rem; }
+            .card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- شريط علوي لزر الوضع الليلي -->
+        <div class="top-bar">
+            <button class="theme-btn" id="themeToggle" aria-label="تبديل المظهر">
+                🌙 الوضع الليلي
+            </button>
+        </div>
+
+        <!-- البطاقة التعريفية -->
+        <header class="card hero">
+            <div class="avatar-initials">م ر</div>
+            <h1>محمد الرفاعي</h1>
+            <div class="subtitle">طالب IT</div>
+            <p class="bio">
+                مهتم بمجال تقنية المعلومات وتطوير البرمجيات، أسعى دائماً لبناء تطبيقات عملية وتطوير مهاراتي التقنية بشكل مستمر.
+            </p>
+        </header>
+
+        <!-- قسم لغات البرمجة والتقنيات -->
+        <section class="card">
+            <h2>لغات البرمجة والتقنيات</h2>
+            <div class="skills-grid">
+                <span class="skill-tag">Flutter</span>
+                <span class="skill-tag">C#</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">HTML</span>
+                <span class="skill-tag">CSS</span>
+            </div>
+        </section>
+
+        <!-- قسم الهوايات والاهتمامات -->
+        <section class="card">
+            <h2>الهوايات والاهتمامات</h2>
+            <div class="hobby-box">
+                <span>التعلم وتطوير الذات</span>
+                <span class="hobby-badge">شغف مستمر</span>
+            </div>
+        </section>
+
+        <footer>
+            <p>© <span id="year"></span> محمد الرفاعي - جميع الحقوق محفوظة</p>
+        </footer>
+    </div>
+
+    <script>
+        // تحديث السنة تلقائياً في التذييل
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // التحكم في الوضع الليلي والنهاري وحفظ الاختيار
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        setTheme(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        });
+
+        function setTheme(theme) {
+            htmlElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            themeToggle.textContent = theme === 'dark' ? '☀️ الوضع النهاري' : '🌙 الوضع الليلي';
+        }
+    </script>
+</body>
+</html>
